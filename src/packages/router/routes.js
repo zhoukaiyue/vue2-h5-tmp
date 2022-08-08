@@ -2,12 +2,11 @@
  * @Descripttion:
  * @version:
  * @Author: zhoukai
- * @Date: 2022-07-29 16:29:36
+ * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 11:06:36
+ * @LastEditTime: 2022-08-08 16:46:13
  */
-
-// import router404 from "./router404.js";
+import router404 from './router404.js';
 
 const modulesFiles = require.context('@/config/router', true, /\.js$/);
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
@@ -31,6 +30,6 @@ for (const key in modules) {
 }
 // 404页面
 
-// routers.push(...router404);
+routers.push(...router404);
 
 export default routers;

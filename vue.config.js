@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 14:47:13
+ * @LastEditTime: 2022-08-08 15:09:49
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');

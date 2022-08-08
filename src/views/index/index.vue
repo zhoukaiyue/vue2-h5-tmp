@@ -4,13 +4,16 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 11:00:15
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 14:19:06
+ * @LastEditTime: 2022-08-08 16:50:12
 -->
 <template>
-    <div class="index">首页</div>
+    <frame-view class="index">
+        <van-button type="info">开发者中心</van-button>
+    </frame-view>
 </template>
 
 <script>
+import { Button } from 'vant';
 export default {
     props: {},
     data() {
@@ -21,8 +24,18 @@ export default {
     mounted() {},
     watch: {},
     methods: {},
-    components: {}
+    components: {
+        [Button.name]: Button
+    }
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.index {
+    display: flex;
+    font-size: 28px;
+    ::v-deep .frame-view-content {
+        padding: 20px;
+    }
+}
+</style>

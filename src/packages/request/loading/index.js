@@ -1,10 +1,10 @@
 /*
- * @Descripttion: 请求库默认loading
+ * @Descripttion:
  * @version:
  * @Author: zhoukai
- * @Date: 2022-08-02 17:36:23
+ * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-02 17:59:17
+ * @LastEditTime: 2022-08-08 15:53:47
  */
 import { Toast } from 'antd-mobile';
 
