@@ -1,31 +1,43 @@
 {
-  "name": "vue2-h5-tmp",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.1",
-    "vuex": "^3.6.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "prettier": "^2.4.1",
-    "vue-template-compiler": "^2.6.14"
-  }
+    "name": "vue2-h5-tmp",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "vue-cli-service serve --mode development",
+        "build": "vue-cli-service build  --mode production",
+        "build:test": "vue-cli-service build  --mode test ",
+        "build:prod": "vue-cli-service build --mode production",
+        "lint": "vue-cli-service lint",
+        "lint:prettier": "npx prettier --write src/  --config ./.prettierrc.js",
+        "lint:fix": "npx eslint --ext .js,.vue ./ --fix"
+    },
+    "scripts-info": {
+        "start": "运行开发环境服务器",
+        "build": "构建生产程序包",
+        "build:prod": "构建生产程序包",
+        "build:test": "构建灰度程序包",
+        "lint:prettier": "格式化src/下所有文件",
+        "lint:fix": "对src/.js文件进行lint，并尝试修复一些格式类的错误，语法类需要手动修复"
+    },
+    "dependencies": {
+        "core-js": "^3.8.3",
+        "vue": "^2.6.14",
+        "vue-router": "^3.5.1",
+        "vuex": "^3.6.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.16",
+        "@babel/eslint-parser": "^7.12.16",
+        "@vue/cli-plugin-babel": "~5.0.0",
+        "@vue/cli-plugin-eslint": "~5.0.0",
+        "@vue/cli-plugin-router": "~5.0.0",
+        "@vue/cli-plugin-vuex": "~5.0.0",
+        "@vue/cli-service": "~5.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-vue": "^8.0.3",
+        "prettier": "^2.4.1",
+        "vue-template-compiler": "^2.6.14"
+    }
 }
