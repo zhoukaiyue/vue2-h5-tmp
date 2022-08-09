@@ -4,12 +4,10 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-09 10:39:25
+ * @LastEditTime: 2022-08-09 14:48:26
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 // eslint-disable-next-line no-unused-vars
 const isEnvDevelopment = process.env.VUE_APP_MODE === 'development'; // 开发模式
 // eslint-disable-next-line no-unused-vars
@@ -26,34 +24,11 @@ module.exports = defineConfig({
     chainWebpack: (config) => {
         // 添加别名
         config.resolve.alias.set('@', resolve('src'));
+        config.devtool(isEnvDevelopment ? 'cheap-module-source-map' : false);
     },
     configureWebpack: () => {
-        const plugins = [];
-        const minimizer = [
-            new CssMinimizerPlugin(),
-            new TerserPlugin({
-                parallel: 6,
-                extractComments: false, // 不将注释提取到单独的文件中
-                terserOptions: {
-                    ecma: undefined,
-                    warnings: false,
-                    parse: {},
-                    format: {
-                        comments: false
-                    },
-                    compress: {
-                        drop_console: isEnvProduction, // 生产环境下移除控制台所有的内容
-                        drop_debugger: false, // 移除断点
-                        pure_funcs: isEnvProduction ? ['console.log'] : '' // 生产环境下移除console
-                    }
-                }
-            })
-        ];
         return {
-            plugins,
             optimization: {
-                minimize: true,
-                minimizer,
                 // 此设置保证有新增的入口文件时,原有缓存的chunk文件仍然可用
                 moduleIds: 'deterministic',
                 // 值为"single"会创建一个在所有生成chunk之间共享的运行时文件
