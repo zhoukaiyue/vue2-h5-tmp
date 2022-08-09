@@ -4,11 +4,11 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 11:00:15
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 16:50:12
+ * @LastEditTime: 2022-08-09 10:18:37
 -->
 <template>
     <frame-view class="index">
-        <van-button type="info">开发者中心</van-button>
+        <van-button type="info" :to="{ path: '/dev' }">开发者中心</van-button>
     </frame-view>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 .index {
     display: flex;
     font-size: 28px;
-    ::v-deep .frame-view-content {
+    :deep(.frame-view-content) {
         padding: 20px;
     }
 }

@@ -1,13 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: zhoukai
+ * @Date: 2022-08-04 22:23:38
+ * @LastEditors: zhoukai
+ * @LastEditTime: 2022-08-09 10:12:49
+-->
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>vue2-h5-tmp</title>
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>vue2-h5-tmp</title>
+  <style>
+    .toggle-loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .toggle-loading .cont {
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+
+    .toggle-loading .cont img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='toggle-loading' id="toggle-loading">
+    <div class='cont'>
+      <img src="<%= BASE_URL %>loading@2x.gif" alt="">
+    </div>
+  </div>
+  <div id="app"></div>
+</body>
+
 </html>

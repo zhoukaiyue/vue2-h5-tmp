@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 16:44:32
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 16:48:26
+ * @LastEditTime: 2022-08-09 10:18:24
 -->
 <template>
     <frame-view class="err404">
@@ -30,7 +30,7 @@ export default {
 
 <style scoped lang="scss">
 .err404 {
-    ::v-deep .frame-view-content {
+    :deep(.frame-view-content) {
         background-color: #fff;
         .bg {
             width: 270px;

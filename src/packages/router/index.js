@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 14:23:06
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 14:44:36
+ * @LastEditTime: 2022-08-09 10:15:07
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -24,9 +24,15 @@ router.beforeEach(async (to, from, next) => {
     if (to.meta && to.meta.title) {
         document.title = to.meta.title;
     }
+    document.getElementById('toggle-loading').setAttribute('style', 'display:auto');
     next();
 });
 
+router.afterEach((to) => {
+    document.getElementById('toggle-loading')?.setAttribute('style', 'display:none');
+    if (to.meta && to.meta.title) {
+        document.title = to.meta.title;
+    }
+});
 // router.afterEach((to) => {});
-
 export default router;
