@@ -4,19 +4,19 @@
  * @Author: zhoukai
  * @Date: 2022-08-10 16:43:24
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 17:47:59
+ * @LastEditTime: 2022-08-10 23:31:10
 -->
 <template>
     <van-pull-refresh
         class="base-list"
         v-model="refreshing"
         success-text="刷新成功"
-        @refresh="onRefresh"
+        @refresh="getListMore('refresh')"
         :disabled="pullDisabled"
     >
-        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+        <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="getListMore('load')">
             <div v-for="(item, index) in list" :key="index">
-                {{ item.propertyTitle }}
+                <slot name="default" :row="item" :index="index"></slot>
             </div>
         </van-list>
     </van-pull-refresh>
@@ -70,33 +70,28 @@ export default {
     watch: {},
     methods: {
         /**
-         * 滚动条与底部距离小于 offset 时触发
-         */
-        onLoad() {
-            this.getListMore();
-        },
-        /**
-         * 下拉刷新时触发
-         */
-        onRefresh() {
-            this.getListMore('refresh');
-        },
-        /**
          * 业务code
-         * @param {String} type 可选值："init"（初始化） | "refresh"（下拉刷新操作） | ""
+         * @param {String} type 可选值："init"（初始化） | "refresh"（下拉刷新操作） | "load" 滚动加载
          */
         async getListMore(type = '') {
+            // 下拉刷新方式
+            if (type === 'refresh') {
+                this.refreshing = false;
+                //初始化或者下拉刷新时，滚动加载状态、滚动已加载完成，防止触发list的onload方法
+                // 重新加载数据
+                // 将 loading 设置为 true，表示处于加载状态
+                this.loading = true;
+                this.finished = false;
+            }
+
             if (type === 'init' || type === 'refresh') {
                 //重置分页
                 this.page = 1;
                 // 清空页面数据
                 this.list = [];
-                //初始化或者下拉刷新时，滚动加载状态、滚动已加载完成，防止触发list的onload方法
-                this.loading = false;
-                this.finished = false;
+                // await sleep(1000);
             }
-            // 沉睡1秒
-            await sleep(1000);
+
             try {
                 const res = await this.req.fn({ ...this.req.params, page: this.page, size: this.size });
                 //下一页
@@ -109,10 +104,8 @@ export default {
                         _list = _list[item];
                     });
                 }
-
-                this.loading = false;
-                this.refreshing = false;
                 this.list = [...this.list, ..._list];
+                this.loading = false;
                 // 分页是否加载完毕
                 if (_list.length < (this.size || 10)) {
                     this.finished = true;
