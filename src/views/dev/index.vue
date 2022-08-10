@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-09 09:53:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-09 10:18:12
+ * @LastEditTime: 2022-08-10 16:30:06
 -->
 <template>
     <frame-view class="dev">
@@ -14,7 +14,7 @@
         </div>
         <div style="padding: 12px 0">下面是一些基础组件的使用demo，可以点进去试一试</div>
         <div class="nav">
-            <div class="nav__block" v-for="(item, index) in findRouterList" :key="index">
+            <div class="nav__block" v-for="(item, index) in findRouterList" :key="index" @click="goPage(item)">
                 <span> {{ item.label }}</span>
                 <van-icon name="arrow" size="16" color="#B6C3D2" />
             </div>
@@ -44,6 +44,10 @@ export default {
                 {
                     path: '/dev/tabbar',
                     label: 'tabbar 底部标签栏'
+                },
+                {
+                    path: '/dev/eventBus',
+                    label: 'EventBus事件总线的使用'
                 }
             ]
         };
@@ -52,7 +56,11 @@ export default {
     created() {},
     mounted() {},
     watch: {},
-    methods: {},
+    methods: {
+        goPage({ path }) {
+            this.$router.push(path);
+        }
+    },
     components: {
         [Tag.name]: Tag,
         [Icon.name]: Icon

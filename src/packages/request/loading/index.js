@@ -4,9 +4,9 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 15:53:47
+ * @LastEditTime: 2022-08-10 17:28:00
  */
-import { Toast } from 'antd-mobile';
+import { Toast } from 'vant';
 
 // 计数
 let COUNT = 0;
@@ -14,10 +14,10 @@ let COUNT = 0;
 const laoding = {
     show() {
         if (COUNT === 0) {
-            Toast.show({
+            Toast.loading({
                 duration: 0,
-                icon: 'loading',
-                content: '加载中…'
+                loadingType: 'spinner',
+                message: '加载中…'
             });
         }
         COUNT++;

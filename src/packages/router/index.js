@@ -4,13 +4,14 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 14:23:06
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-09 10:15:07
+ * @LastEditTime: 2022-08-10 11:13:18
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routes';
 
 Vue.use(VueRouter);
+console.log('============');
 console.log(routes);
 const options = {
     mode: 'history',
