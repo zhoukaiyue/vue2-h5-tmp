@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-11 17:26:12
+ * @LastEditTime: 2022-08-11 17:34:09
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -39,7 +39,6 @@ module.exports = defineConfig({
     // 调整内部的 webpack 配置。
     // 查阅 https://cli.vuejs.org/zh/guide/webpack.html
     chainWebpack: (config) => {
-        // console.log(config.optimization.minimizer());
         // 移除 preload 插件
         config.plugins.delete('preload');
         // 移除 prefetch 插件
@@ -73,7 +72,6 @@ module.exports = defineConfig({
             })
         );
         return {
-            devtool: 'source-map',
             optimization: {
                 // 此设置保证有新增的入口文件时,原有缓存的chunk文件仍然可用
                 moduleIds: 'deterministic',
