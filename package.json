@@ -9,7 +9,8 @@
         "build:prod": "vue-cli-service build --mode production",
         "lint": "vue-cli-service lint",
         "lint:prettier": "npx prettier --write src/  --config ./.prettierrc.js",
-        "lint:fix": "npx eslint --ext .js,.vue ./ --fix"
+        "lint:fix": "npx eslint --ext .js,.vue ./ --fix",
+        "analyze": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
     },
     "scripts-info": {
         "start": "运行开发环境服务器",
@@ -17,7 +18,8 @@
         "build:prod": "构建生产程序包",
         "build:test": "构建灰度程序包",
         "lint:prettier": "格式化src/下所有文件",
-        "lint:fix": "对src/.js文件进行lint，并尝试修复一些格式类的错误，语法类需要手动修复"
+        "lint:fix": "对src/.js文件进行lint，并尝试修复一些格式类的错误，语法类需要手动修复",
+        "analyze": "该命令旨在分析捆绑包大小。你需要开发环境配置文件（env.development）中设置 VUE_APP_BUNDLE_ANALYZE 为 true，先运行npm run start命令，然后运行 npm run analyze 即可"
     },
     "dependencies": {
         "axios": "0.27.2",

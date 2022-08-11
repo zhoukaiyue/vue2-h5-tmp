@@ -4,11 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-11 17:34:09
+ * @LastEditTime: 2022-08-11 21:32:48
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+// 使用 analyzer 分析项目编译后的文件组成，以便进行加载速度优化。
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // 开发模式
 // eslint-disable-next-line no-unused-vars
 const isEnvDevelopment = process.env.NODE_ENV === 'development';
@@ -18,7 +20,8 @@ const isEnvTest = process.env.VUE_APP_MODEW === 'test';
 // 生产模式
 // eslint-disable-next-line no-unused-vars
 const isEnvProduction = process.env.VUE_APP_MODE === 'production';
-
+//是否需要进行捆绑包分析
+const BUNDLE_ANALYZE = process.env.VUE_APP_BUNDLE_ANALYZE === 'true';
 function resolve(dir) {
     return path.resolve(__dirname, dir);
 }
@@ -71,6 +74,19 @@ module.exports = defineConfig({
                 }
             })
         );
+
+        if (isEnvDevelopment && BUNDLE_ANALYZE) {
+            config.plugins.push(
+                new BundleAnalyzerPlugin({
+                    analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+                    generateStatsFile: true // 是否生成stats.json文件
+                })
+            );
+        }
+
+        /**
+         * test环境进行依赖分析
+         */
         return {
             optimization: {
                 // 此设置保证有新增的入口文件时,原有缓存的chunk文件仍然可用
