@@ -4,52 +4,76 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-09 22:58:23
+ * @LastEditTime: 2022-08-11 17:26:12
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-// const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+// 开发模式
 // eslint-disable-next-line no-unused-vars
-const isEnvDevelopment = process.env.NODE_ENV === 'development'; // 开发模式
+const isEnvDevelopment = process.env.NODE_ENV === 'development';
+// 测试环境
 // eslint-disable-next-line no-unused-vars
-const isEnvProduction = process.env.NODE_ENV === 'production'; // 生产模式
+const isEnvTest = process.env.VUE_APP_MODEW === 'test';
+// 生产模式
+// eslint-disable-next-line no-unused-vars
+const isEnvProduction = process.env.VUE_APP_MODE === 'production';
 
 function resolve(dir) {
     return path.resolve(__dirname, dir);
 }
 
 module.exports = defineConfig({
+    runtimeCompiler: true,
     transpileDependencies: true,
     // 部署生产环境和开发环境下的URL。
     // 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上
-    //例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 baseUrl 为 /my-app/。
+    // 例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 baseUrl 为 /my-app/。
     publicPath: process.env.VUE_APP_PUBLIC_URL,
-    //用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
+    // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
     assetsDir: 'static',
-    /**
-     * 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
-     * 打包之后发现map文件过大，项目文件体积很大，设置为false就可以不输出map文件
-     * map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
-     * 有了map就可以像未加密的代码一样，准确的输出是哪一行哪一列有错。
-     * */
+    // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
     productionSourceMap: false,
-    //将 lint 错误输出为编译警告,并且输出到命令行，注意不会使得编译失败。
+    // 将 lint 错误输出为编译警告,并且输出到命令行，注意不会使得编译失败。
     lintOnSave: 'warning',
-    runtimeCompiler: true,
     // 调整内部的 webpack 配置。
     // 查阅 https://cli.vuejs.org/zh/guide/webpack.html
     chainWebpack: (config) => {
+        // console.log(config.optimization.minimizer());
         // 移除 preload 插件
         config.plugins.delete('preload');
         // 移除 prefetch 插件
         config.plugins.delete('prefetch');
         // 添加别名
         config.resolve.alias.set('@', resolve('src'));
-        config.devtool(isEnvDevelopment ? 'cheap-module-source-map' : false);
     },
-    configureWebpack: () => {
+    configureWebpack: (config) => {
+        /**
+         * del 控制台console.log 日志、debugger、代码注释
+         * 方式一 ：config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
+         * 方式二 ：(重写TerserPlugin)这里采用方式二
+         */
+        config.plugins.push(
+            // 重写
+            // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+            new TerserPlugin({
+                parallel: 6,
+                extractComments: false, // 不将注释提取到单独的文件中
+                // https://github.com/terser/terser#minify-options
+                terserOptions: {
+                    ecma: 5, // specify one of: 5, 2015, 2016, etc.
+                    mangle: true, // Note `mangle.properties` is `false` by default.
+                    warnings: false,
+                    compress: {
+                        drop_console: isEnvProduction, // 生产环境下移除控制台所有的内容
+                        drop_debugger: false, // 移除断点
+                        pure_funcs: isEnvProduction ? ['console.log'] : '' // 生产环境下移除console
+                    }
+                }
+            })
+        );
         return {
+            devtool: 'source-map',
             optimization: {
                 // 此设置保证有新增的入口文件时,原有缓存的chunk文件仍然可用
                 moduleIds: 'deterministic',
@@ -94,22 +118,7 @@ module.exports = defineConfig({
                             reuseExistingChunk: true
                         }
                     }
-                },
-                minimize: true,
-                minimizer: [
-                    new TerserPlugin({
-                        extractComments: false, //不将注释提取到单独的文件中
-                        terserOptions: {
-                            compress: {
-                                // 移除 warning,console,debugger等
-                                warnings: false,
-                                drop_console: true,
-                                drop_debugger: true,
-                                pure_funcs: ['console.log'] // 移除console
-                            }
-                        }
-                    })
-                ]
+                }
             },
             cache: {
                 // 将缓存类型设置为文件系统,默认是memory
@@ -118,6 +127,10 @@ module.exports = defineConfig({
                     // 更改配置文件时，重新缓存
                     config: [__filename]
                 }
+            },
+            performance: {
+                maxAssetSize: 500000,
+                maxEntrypointSize: 500000
             }
         };
     },
