@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 14:19:07
+ * @LastEditTime: 2022-08-12 17:34:05
  */
 module.exports = {
     root: true,
@@ -19,6 +19,7 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'vue/multi-word-component-names': 'off'
+        'vue/multi-word-component-names': 'off',
+        'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }]
     }
 };
