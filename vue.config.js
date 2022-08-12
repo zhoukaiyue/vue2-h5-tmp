@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-11 21:32:48
+ * @LastEditTime: 2022-08-12 15:43:51
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -105,6 +105,11 @@ module.exports = defineConfig({
                     // webpack5新属性，防止0尺寸的chunk
                     minRemainingSize: 0,
                     cacheGroups: {
+                        'vendors/vconsole': {
+                            name: 'vendors/vconsole',
+                            test: /[\\/]node_modules[\\/]vconsole[\\/]/,
+                            priority: 9
+                        },
                         'vendors/frame-view': {
                             name: 'vendors/frame-view',
                             test: /[\\/]src[\\/](layout)[\\/]/,
