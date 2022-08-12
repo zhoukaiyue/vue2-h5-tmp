@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 15:43:51
+ * @LastEditTime: 2022-08-12 16:19:56
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -13,7 +13,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // 开发模式
 // eslint-disable-next-line no-unused-vars
-const isEnvDevelopment = process.env.NODE_ENV === 'development';
+const isEnvDevelopment = process.env.VUE_APP_MODE === 'development';
 // 测试环境
 // eslint-disable-next-line no-unused-vars
 const isEnvTest = process.env.VUE_APP_MODEW === 'test';
@@ -149,7 +149,7 @@ module.exports = defineConfig({
             },
             performance: {
                 maxAssetSize: 500000,
-                maxEntrypointSize: 500000
+                maxEntrypointSize: 1000000
             }
         };
     },
