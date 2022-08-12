@@ -13,6 +13,25 @@ vue2-h5-tmp 是基于 vue create(vueCli5) 创建并使用 vant2 作为 UI 组件
 -   Eslint v2.2.6
 -   Prettier - Code formatter v9.5.0
 
+## 快速开发
+
+```
+#安装项目依赖
+npm install
+#开发环境启动
+npm run start
+#打包 test 环境代码
+npm run build:test
+#打包生产环境代码
+npm run build or npm run build:prod
+#执行 js 类型检查
+npm run lint:fix
+#执行 prettier 批量格式化代码
+npm run lint:prettier
+
+##注：详细请阅读package.json 以及对应的配置文件！
+```
+
 ## 开发规范
 
 ### 基础组件名。 【注：src/components 目录。】
@@ -113,44 +132,44 @@ vue2-h5-tmp                           //
 ├─ babel.config.js                    //
 ├─ jsconfig.json                      //
 ├─ package-lock.json                  //
-├─ package.json                       //
+├─ package.json                       // 项目描述文件
 ├─ postcss.config.js                  //
 ├─ public                             //
 │  ├─ favicon.ico                     //
 │  ├─ index.html                      //
 │  └─ loading@2x.gif                  //
 ├─ README.md                          //
-├─ src                                //
+├─ src                                // 源码目录
 │  ├─ App.vue                         //
-│  ├─ assets                          //
-│  │  ├─ css                          //
+│  ├─ assets                          // 静态资源
+│  │  ├─ css                          // css
 │  │  │  ├─ index.scss                //
 │  │  │  └─ utils                     //
 │  │  │     └─ @util.scss             //
-│  │  ├─ img                          //
+│  │  ├─ img                          // img
 │  │  │  └─ base                      //
 │  │  │     ├─ empty.png              //
 │  │  │     └─ loading@2x.gif         //
-│  │  ├─ js                           //
+│  │  ├─ js                           // js
 │  │  └─ logo.png                     //
-│  ├─ config                          //
-│  │  ├─ apis                         //
+│  ├─ config                          // 项目配套的第三方包配置
+│  │  ├─ apis                         // 业务模块接口配置
 │  │  │  └─ dev.js                    //
-│  │  ├─ router                       //
+│  │  ├─ router                       // 业务模块router路由配置
 │  │  │  ├─ dev.js                    //
 │  │  │  └─ index.js                  //
-│  │  └─ store                        //
+│  │  └─ store                        // 业务模块store配置
 │  │     └─ dev                       //
 │  │        └─ index.js               //
-│  ├─ layout                          //
+│  ├─ layout                          // 布局组件
 │  │  ├─ frame-view                   //
 │  │  │  └─ index.vue                 //
 │  │  ├─ index.js                     //
 │  │  ├─ README.md                    //
 │  │  └─ tabbar                       //
 │  │     └─ index.vue                 //
-│  ├─ main.js                         //
-│  ├─ packages                        //
+│  ├─ main.js                         // 入口js文件
+│  ├─ packages                        // 项目配套的第三方包
 │  │  ├─ request                      //
 │  │  │  ├─ index.js                  //
 │  │  │  └─ loading                   //
@@ -162,23 +181,23 @@ vue2-h5-tmp                           //
 │  │  └─ store                        //
 │  │     ├─ index.js                  //
 │  │     └─ modules.js                //
-│  ├─ resources                       //
-│  │  ├─ components                   //
+│  ├─ resources                       // 全局基础资源如基础组件、全局插件、全局指令等
+│  │  ├─ components                   // 基础组件
 │  │  │  ├─ base-list                 //
 │  │  │  │  ├─ index.vue              //
 │  │  │  │  └─ README.md              //
 │  │  │  └─ tab                       //
-│  │  └─ plugin                       //
-│  ├─ utils                           //
-│  │  ├─ helper                       //
+│  │  └─ plugin                       // 全局插件
+│  ├─ utils                           // 工具类
+│  │  ├─ helper                       // 帮助类
 │  │  │  └─ env.js                    //
-│  │  └─ tools                        //
+│  │  └─ tools                        // 其他工具类
 │  │     ├─ eventBus                  //
 │  │     │  └─ index.js               //
 │  │     ├─ get-realpx                //
 │  │     │  └─ index.js               //
 │  │     └─ sleep.js                  //
-│  └─ views                           //
+│  └─ views                           // 页面级资源
 │     ├─ components                   //
 │     ├─ dev                          //
 │     │  ├─ components                //
@@ -202,6 +221,6 @@ vue2-h5-tmp                           //
 │     │  └─ index.vue                 //
 │     └─ index                        //
 │        └─ index.vue                 //
-└─ vue.config.js                      //
+└─ vue.config.js                      // 构建脚本（webpack配置）
 
 ```
