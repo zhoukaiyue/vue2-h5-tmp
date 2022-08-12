@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 16:48:40
+ * @LastEditTime: 2022-08-12 09:54:04
  */
 
 const routes = [
@@ -48,6 +48,13 @@ const routes = [
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/list'),
         meta: {
             title: '下拉刷新，滚动加载列表'
+        }
+    },
+    {
+        path: '/dev/vuex',
+        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/vuex'),
+        meta: {
+            title: 'vuex状态管理的使用'
         }
     }
 ];

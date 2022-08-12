@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-09 09:53:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 16:30:06
+ * @LastEditTime: 2022-08-12 09:54:12
 -->
 <template>
     <frame-view class="dev">
@@ -44,6 +44,10 @@ export default {
                 {
                     path: '/dev/tabbar',
                     label: 'tabbar 底部标签栏'
+                },
+                {
+                    path: '/dev/vuex',
+                    label: 'vuex状态管理的使用'
                 },
                 {
                     path: '/dev/eventBus',
