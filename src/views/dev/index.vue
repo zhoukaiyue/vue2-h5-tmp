@@ -4,13 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-08-09 09:53:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 09:54:12
+ * @LastEditTime: 2022-08-12 14:10:49
 -->
 <template>
     <frame-view class="dev">
         <div>
-            <van-tag>vue2-h5-tmp</van-tag>&nbsp; 是基于&nbsp; vue create&nbsp; 创建并使用&nbsp; vant2&nbsp; 作为 UI
-            组件库的一个移动端脚手架，开箱即用。
+            <van-tag>vue2-h5-tmp</van-tag>&nbsp; 是基于&nbsp; vue create(vueCli5)&nbsp; 创建并使用&nbsp; vant2&nbsp;
+            作为 UI 组件库的一个移动端脚手架，开箱即用。
         </div>
         <div style="padding: 12px 0">下面是一些基础组件的使用demo，可以点进去试一试</div>
         <div class="nav">
