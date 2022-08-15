@@ -22,8 +22,10 @@
         "analyze": "该命令旨在分析捆绑包大小。你需要在开发环境配置文件（env.development）中设置 VUE_APP_BUNDLE_ANALYZE 为 true，先运行npm run start命令，然后运行 npm run analyze 即可"
     },
     "dependencies": {
+        "@babel/polyfill": "^7.12.1",
         "axios": "0.27.2",
         "core-js": "3.24.1",
+        "current-script-polyfill": "^1.0.0",
         "lodash": "^4.17.21",
         "vant": "2.12.48",
         "vconsole": "^3.14.6",
@@ -34,7 +36,8 @@
     "devDependencies": {
         "@babel/core": "7.18.10",
         "@babel/eslint-parser": "7.18.9",
-        "@vue/cli-plugin-babel": "5.0.8",
+        "@babel/preset-env": "^7.18.10",
+        "@vue/cli-plugin-babel": "^5.0.8",
         "@vue/cli-plugin-eslint": "5.0.8",
         "@vue/cli-plugin-router": "5.0.8",
         "@vue/cli-plugin-vuex": "5.0.8",

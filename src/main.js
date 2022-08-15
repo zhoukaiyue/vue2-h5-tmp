@@ -4,9 +4,9 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 16:11:43
+ * @LastEditTime: 2022-08-15 23:21:06
  */
-
+import 'current-script-polyfill';
 import Vue from 'vue';
 import '@/packages/console';
 // 导入全局css
