@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 09:54:04
+ * @LastEditTime: 2022-08-15 12:25:40
  */
 
 const routes = [
@@ -47,7 +47,8 @@ const routes = [
         path: '/dev/list',
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/list'),
         meta: {
-            title: '下拉刷新，滚动加载列表'
+            title: '下拉刷新，滚动加载列表',
+            keepAlive: true
         }
     },
     {

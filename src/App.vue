@@ -4,11 +4,16 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-08 16:10:16
+ * @LastEditTime: 2022-08-15 10:31:39
 -->
 <template>
     <div id="app" class="top-safe-area bottom-safe-area">
-        <router-view />
+        <keep-alive>
+            <!-- 缓存的视图 -->
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <!-- 不缓存的视图 -->
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
     </div>
 </template>
 

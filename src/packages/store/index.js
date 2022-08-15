@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 10:29:13
+ * @LastEditTime: 2022-08-15 14:16:07
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -14,9 +14,15 @@ import { modules } from './modules';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {},
+    state: {
+        vueKeepScroll: void 0
+    },
     getters: {},
-    mutations: {},
+    mutations: {
+        SET_VUE_KEEP_SCROLL(state, params) {
+            state.vueKeepScroll = params;
+        }
+    },
     actions: {},
     modules: {
         ...modules
