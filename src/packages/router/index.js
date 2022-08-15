@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 14:23:06
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-15 14:19:24
+ * @LastEditTime: 2022-08-15 15:12:38
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -54,7 +54,7 @@ router.afterEach((to) => {
         Vue.nextTick(() => {
             const $content = document.querySelector('.frame-view-content');
             if ($content) {
-                $content.scrollTop = store.vueKeepScroll;
+                $content.scrollTop = store.state.vueKeepScroll;
             }
         });
     }
