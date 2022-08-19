@@ -4,9 +4,9 @@
     "private": true,
     "scripts": {
         "start": "vue-cli-service serve --mode development",
-        "build": "vue-cli-service build  --mode production",
-        "build:test": "vue-cli-service build  --mode test",
-        "build:prod": "vue-cli-service build --mode production",
+        "build": "vue-cli-service build  --mode production  --no-module",
+        "build:test": "vue-cli-service build  --mode test  --no-module",
+        "build:prod": "vue-cli-service build --mode production  --no-module",
         "lint": "vue-cli-service lint",
         "lint:prettier": "npx prettier --write src/  --config ./.prettierrc.js",
         "lint:fix": "npx eslint --ext .js,.vue ./ --fix",
