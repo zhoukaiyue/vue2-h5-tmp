@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-12 16:19:56
+ * @LastEditTime: 2022-08-24 18:08:33
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -50,6 +50,19 @@ module.exports = defineConfig({
         config.resolve.alias.set('@', resolve('src'));
     },
     configureWebpack: (config) => {
+        // 补充HtmlWebpackPlugin插件配置
+        config.plugins[5].userOptions.minify = {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true
+        };
         /**
          * del 控制台console.log 日志、debugger、代码注释
          * 方式一 ：config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
@@ -65,11 +78,10 @@ module.exports = defineConfig({
                 terserOptions: {
                     ecma: 5, // specify one of: 5, 2015, 2016, etc.
                     mangle: true, // Note `mangle.properties` is `false` by default.
-                    warnings: false,
                     compress: {
                         drop_console: isEnvProduction, // 生产环境下移除控制台所有的内容
                         drop_debugger: false, // 移除断点
-                        pure_funcs: isEnvProduction ? ['console.log'] : '' // 生产环境下移除console
+                        pure_funcs: isEnvProduction ? ['console.log'] : [] // 生产环境下移除console
                     }
                 }
             })
