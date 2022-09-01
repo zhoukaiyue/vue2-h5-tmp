@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-24 18:08:33
+ * @LastEditTime: 2022-09-01 11:41:38
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -51,18 +51,20 @@ module.exports = defineConfig({
     },
     configureWebpack: (config) => {
         // 补充HtmlWebpackPlugin插件配置
-        config.plugins[5].userOptions.minify = {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true
-        };
+        if (config.plugins[4] && config.plugins[4].userOptions) {
+            config.plugins[4].userOptions.minify = {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+            };
+        }
         /**
          * del 控制台console.log 日志、debugger、代码注释
          * 方式一 ：config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
