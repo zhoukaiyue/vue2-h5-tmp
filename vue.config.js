@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-09-01 11:41:38
+ * @LastEditTime: 2022-09-01 11:50:13
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -50,9 +50,9 @@ module.exports = defineConfig({
         config.resolve.alias.set('@', resolve('src'));
     },
     configureWebpack: (config) => {
-        // 补充HtmlWebpackPlugin插件配置
-        if (config.plugins[4] && config.plugins[4].userOptions) {
-            config.plugins[4].userOptions.minify = {
+        // production模式下构建时补充HtmlWebpackPlugin插件配置
+        if (!isEnvDevelopment && config.plugins[5] && config.plugins[5].userOptions) {
+            config.plugins[5].userOptions.minify = {
                 removeComments: true,
                 collapseWhitespace: true,
                 removeRedundantAttributes: true,
