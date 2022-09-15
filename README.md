@@ -135,13 +135,14 @@ vue2-h5-tmp                           //
 ├─ package.json                       // 项目描述文件
 ├─ postcss.config.js                  //
 ├─ public                             //
-│  ├─ favicon.ico                     //
 │  ├─ index.html                      //
-│  └─ loading@2x.gif                  //
+│  └─ static                          // 静态资源 
+│     ├─ favicon.ico                  //
+│     └─ loading@2x.gif               //
 ├─ README.md                          //
 ├─ src                                // 源码目录
 │  ├─ App.vue                         //
-│  ├─ assets                          // 静态资源
+│  ├─ assets                          // 静态资源 hash处理
 │  │  ├─ css                          // css
 │  │  │  ├─ index.scss                //
 │  │  │  └─ utils                     //

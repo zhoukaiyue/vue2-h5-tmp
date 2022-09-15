@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 16:11:00
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-09 14:40:21
+ * @LastEditTime: 2022-09-09 18:10:54
 -->
 <template>
     <van-tabbar route :fixed="true" class="frame-view-tabbar">

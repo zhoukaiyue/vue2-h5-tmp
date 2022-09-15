@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-09-01 11:50:13
+ * @LastEditTime: 2022-09-15 22:46:07
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -34,7 +34,7 @@ module.exports = defineConfig({
     // 例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 baseUrl 为 /my-app/。
     publicPath: process.env.VUE_APP_PUBLIC_URL,
     // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
-    assetsDir: 'static',
+    assetsDir: 'assets',
     // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
     productionSourceMap: false,
     // 将 lint 错误输出为编译警告,并且输出到命令行，注意不会使得编译失败。
