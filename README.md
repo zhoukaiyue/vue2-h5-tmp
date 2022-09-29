@@ -1,6 +1,6 @@
 # 简介
 
-vue2-h5-tmp 是基于 vue create(vueCli5) 创建并使用 vant2 作为 UI 组件库的一个移动端脚手架，开箱即用。
+vue2-h5-tmp 是基于 vue create(vueCli5) Vue CLI （是一个基于 Vue.js 进行快速开发的完整系统）创建的基于 Webpack 的项目。使用 vant2 作为 UI 组件库的一个移动端脚手架，开箱即用。
 
 ## 环境要求
 
