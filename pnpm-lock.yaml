@@ -21,7 +21,6 @@ specifiers:
   eslint-config-prettier: 8.5.0
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-vue: 8.7.1
-  i: ^0.3.7
   isomorphic-fetch: 3.0.0
   lodash: 4.17.21
   pnpm: ^7.13.5
@@ -46,7 +45,6 @@ dependencies:
   core-js: 3.24.1
   current-script-polyfill: 1.0.0
   es6-proxy-polyfill: 2.1.1
-  i: 0.3.7
   isomorphic-fetch: 3.0.0
   lodash: 4.17.21
   pnpm: 7.13.5
@@ -4307,11 +4305,6 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
     dev: true
-
-  /i/0.3.7:
-    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
-    engines: {node: '>=0.4'}
-    dev: false
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
