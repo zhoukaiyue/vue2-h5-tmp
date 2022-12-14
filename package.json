@@ -60,5 +60,9 @@
         "sass": "1.54.3",
         "sass-loader": "13.0.2",
         "vue-template-compiler": "2.7.8"
+    },
+    "engines": {
+        "node": ">=14",
+        "pnpm": ">=3"
     }
 }
