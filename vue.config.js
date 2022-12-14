@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-09-15 22:46:07
+ * @LastEditTime: 2022-12-14 17:41:17
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -39,6 +39,15 @@ module.exports = defineConfig({
     productionSourceMap: false,
     // 将 lint 错误输出为编译警告,并且输出到命令行，注意不会使得编译失败。
     lintOnSave: 'warning',
+    // 解决[mini-css-extract-plugin] 警告冲突顺序
+    css: {
+        // 注意：css.extract.ignoreOrder会导致在开发模式下提取 CSS
+        extract: !isEnvDevelopment
+            ? {
+                  ignoreOrder: true
+              }
+            : false
+    },
     // 调整内部的 webpack 配置。
     // 查阅 https://cli.vuejs.org/zh/guide/webpack.html
     chainWebpack: (config) => {
