@@ -8,7 +8,9 @@
 -->
 <template>
     <frame-view class="dev-lodashjs">
-        项目中集成了 Lodash <a href="https://www.lodashjs.com/">【官方文档】</a> 工具库。
+        项目中集成了 Lodash
+        <a href="https://www.lodashjs.com/">【官方文档】</a>
+        工具库。
         <br />
         <br />
         <strong>强烈推荐按需引入方式使用</strong>

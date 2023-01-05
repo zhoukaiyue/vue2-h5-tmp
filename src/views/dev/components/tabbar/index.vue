@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-08-10 16:40:49
 -->
 <template>
-    <frame-view class="dev-tabbar" :showTabbar="true"> tabbar 底部标签栏 </frame-view>
+    <frame-view class="dev-tabbar" :showTabbar="true">tabbar 底部标签栏</frame-view>
 </template>
 
 <script>
