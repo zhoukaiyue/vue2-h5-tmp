@@ -4,7 +4,8 @@ vue2-h5-tmp 是基于 Vue2.7 + JavaScript + Webpack5 + Vuex + Vant2 + sass + Rem
 
 ## 环境要求
 
--   node 14+
+-   node ^14.17.0 || >=16.0.0
+-   pnpm >=7
 
 ## 编辑器以及对应扩展
 
