@@ -22,3 +22,6 @@ pnpm-debug.log*
 *.sw?
 .git
 /dist
+
+# 批量任务执行时的日志产物
+error.log
