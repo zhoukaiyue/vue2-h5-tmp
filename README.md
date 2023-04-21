@@ -33,6 +33,11 @@ pnpm lint:prettier
 ##注：详细请阅读package.json 以及对应的环境配置文件（即.env 文件）！
 ```
 
+```text
+同时在项目根目录下包含一个 run.bat，该文件会列出所有 package.json 中 script 块里面的所有命令，
+通过双击该文件，你可以在命令行中输入相应的序号并按 Enter 键，程序将运行你选择的脚本。
+```
+
 ## 开发基础规范
 
 <font  color="red">如果设计稿的尺寸不是 750，而是 375 或其他大小，请在 .postcssrc.js 中及时调整 rootValue。</font>
@@ -182,6 +187,7 @@ vue2-h5-tmp                             //
 │     ├─ favicon.ico                    //
 │     └─ loading@2x.gif                 //
 ├─ README.md                            // 项目基本信息描述文件
+├─ run.bat                              // 批处理文件
 ├─ src                                  // 业务代码
 │  ├─ App.vue                           // 顶层router-view
 │  ├─ assets                            // 静态资源 hash处理
