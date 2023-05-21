@@ -13,7 +13,7 @@
 ```vue
 <template>
     <div>
-        <base-qrcode value="https://example.com" size="200"></base-qrcode>
+        <base-qrcode value="https://example.com" :size="200"></base-qrcode>
     </div>
 </template>
 
@@ -22,7 +22,7 @@ import BaseQrcode from '@/resources/components/base-qrcode';
 
 export default {
     components: {
-        BaseQrcode
+        [BaseQrcode.name]: BaseQrcode
     }
 };
 </script>

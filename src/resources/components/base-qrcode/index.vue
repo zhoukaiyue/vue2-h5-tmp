@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2023-05-21 16:14:53
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-05-21 16:25:42
+ * @LastEditTime: 2023-05-21 22:56:05
 -->
 <template>
     <div class="base-qrcode">
@@ -16,7 +16,7 @@
 import QRCode from 'qrcode';
 
 export default {
-    name: 'BaseQrcode',
+    name: 'base-qrcode',
     props: {
         value: {
             type: String,
@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .base-qrcode {
     display: inline-block;
 }
