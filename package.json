@@ -29,6 +29,7 @@
         "current-script-polyfill": "1.0.0",
         "es6-proxy-polyfill": "2.1.1",
         "isomorphic-fetch": "3.0.0",
+        "jsbarcode": "^3.11.5",
         "lodash": "4.17.21",
         "pnpm": "^7.13.5",
         "qrcode": "^1.5.3",

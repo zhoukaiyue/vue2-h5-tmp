@@ -22,6 +22,7 @@ specifiers:
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-vue: 8.7.1
   isomorphic-fetch: 3.0.0
+  jsbarcode: ^3.11.5
   lodash: 4.17.21
   pnpm: ^7.13.5
   postcss: 8.4.14
@@ -48,6 +49,7 @@ dependencies:
   current-script-polyfill: 1.0.0
   es6-proxy-polyfill: 2.1.1
   isomorphic-fetch: 3.0.0
+  jsbarcode: 3.11.5
   lodash: 4.17.21
   pnpm: 7.18.2
   qrcode: 1.5.3
@@ -4566,6 +4568,11 @@ packages:
       argparse: 1.0.10
       esprima: 4.0.1
     dev: true
+
+  /jsbarcode/3.11.5:
+    resolution: {integrity: sha512-zv3KsH51zD00I/LrFzFSM6dst7rDn0vIMzaiZFL7qusTjPZiPtxg3zxetp0RR7obmjTw4f6NyGgbdkBCgZUIrA==}
+    hasBin: true
+    dev: false
 
   /jsesc/0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
