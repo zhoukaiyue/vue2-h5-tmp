@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-02-07 11:31:53
+ * @LastEditTime: 2023-05-22 10:29:27
  */
 import 'current-script-polyfill';
 import Vue from 'vue';
@@ -19,6 +19,8 @@ import store from '@/packages/store';
 import '@/packages/console';
 // 导入全局插件
 import '@/resources/plugin/index.js';
+// 导入全局自定义指令
+import '@/resources/directive/index.js';
 
 Vue.config.productionTip = false;
 new Vue({
