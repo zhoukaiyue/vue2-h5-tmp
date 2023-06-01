@@ -1,1 +1,1 @@
-export * from 'vue-clipboard2';
+export { default as default } from 'vue-clipboard2';
