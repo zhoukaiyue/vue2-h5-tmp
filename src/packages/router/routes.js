@@ -6,7 +6,6 @@
  * @LastEditors: zhoukai
  * @LastEditTime: 2022-08-08 16:46:13
  */
-import router404 from './router404.js';
 
 const modulesFiles = require.context('@/config/router', true, /\.js$/);
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
@@ -28,8 +27,10 @@ for (const key in modules) {
 
     routers.push(...modules[key]);
 }
-// 404页面
-
-routers.push(...router404);
+// 设置通配路由
+routers.push({
+    path: '*',
+    redirect: '/err404'
+});
 
 export default routers;

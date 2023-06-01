@@ -238,7 +238,6 @@ vue2-h5-tmp                             //
 │  │  │     └─ index.js                 //
 │  │  ├─ router                         // vue-router 核心封装(集中导出)
 │  │  │  ├─ index.js                    //
-│  │  │  ├─ router404.js                //
 │  │  │  └─ routes.js                   //
 │  │  └─ store                          // vuex 核心封装(集中导出)
 │  │     ├─ index.js                    //
