@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-09 09:53:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-10 16:03:01
+ * @LastEditTime: 2023-06-01 16:33:37
 -->
 <template>
     <frame-view class="dev">
@@ -34,14 +34,10 @@ export default {
                     path: '/dev/layOut',
                     label: 'layOut 布局组件的使用'
                 },
-                {
-                    path: '/dev/list',
-                    label: 'list 下拉刷新滚动加载列表'
-                },
-                {
-                    path: '/dev/lodashjs',
-                    label: 'lodashjs 库的使用规范'
-                },
+                // {
+                //     path: '/dev/list',
+                //     label: 'list 下拉刷新滚动加载列表'
+                // },
                 {
                     path: '/dev/tabbar',
                     label: 'tabbar 底部标签栏'
@@ -53,6 +49,10 @@ export default {
                 {
                     path: '/dev/eventBus',
                     label: 'EventBus事件总线的使用'
+                },
+                {
+                    path: '/dev/tool',
+                    label: '脚手架已经集成的工具库'
                 }
             ]
         };

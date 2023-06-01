@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-15 12:25:40
+ * @LastEditTime: 2023-06-01 16:22:20
  */
 
 const routes = [
@@ -20,13 +20,6 @@ const routes = [
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/layOut'),
         meta: {
             title: 'layOut 布局组件'
-        }
-    },
-    {
-        path: '/dev/lodashjs',
-        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/lodashjs'),
-        meta: {
-            title: 'lodashjs使用规范'
         }
     },
     {
@@ -57,6 +50,27 @@ const routes = [
         meta: {
             title: 'vuex状态管理的使用'
         }
+    },
+    {
+        path: '/dev/tool',
+        meta: {
+            title: '脚手架已经集成的工具库'
+        },
+        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/tool/index.vue')
+    },
+    {
+        path: '/dev/tool/copy',
+        meta: {
+            title: 'JavaScript | 文本复制工具'
+        },
+        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/tool/components/copy.vue')
+    },
+    {
+        path: '/dev/tool/lodashjs',
+        meta: {
+            title: 'JavaScript | lodashjs库的使用'
+        },
+        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/tool/components/lodashjs.vue')
     }
 ];
 export default routes;
