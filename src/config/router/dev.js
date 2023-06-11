@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-01 16:22:20
+ * @LastEditTime: 2023-06-11 16:49:08
  */
 
 const routes = [
@@ -12,14 +12,16 @@ const routes = [
         path: '/dev',
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev'),
         meta: {
-            title: '开发者中心'
+            title: '开发者中心',
+            keepAlive: true
         }
     },
     {
         path: '/dev/layOut',
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/layOut'),
         meta: {
-            title: 'layOut 布局组件'
+            title: 'layOut 布局组件',
+            keepAlive: true
         }
     },
     {
@@ -34,14 +36,6 @@ const routes = [
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/tabbar'),
         meta: {
             title: 'tabbar 底部标签栏'
-        }
-    },
-    {
-        path: '/dev/list',
-        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/list'),
-        meta: {
-            title: '下拉刷新，滚动加载列表',
-            keepAlive: true
         }
     },
     {

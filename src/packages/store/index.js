@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-15 14:16:07
+ * @LastEditTime: 2023-06-11 16:57:17
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -15,12 +15,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        vueKeepScroll: void 0
+        scrollPositions: {} //定义一个空对象用于保存每个页面的滚动位置
     },
     getters: {},
     mutations: {
-        SET_VUE_KEEP_SCROLL(state, params) {
-            state.vueKeepScroll = params;
+        //更新每个页面的滚动位置的状态
+        SET_SCROLLPOSITIONS(state, params) {
+            state.scrollPositions = Object.assign({}, state.scrollPositions, params);
         }
     },
     actions: {},

@@ -24,7 +24,6 @@ for (const key in modules) {
     // if (key !== 'dev') {
     //     routers.push(...modules[key]);
     // }
-
     routers.push(...modules[key]);
 }
 // 设置通配路由
