@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-14 17:41:17
+ * @LastEditTime: 2023-06-11 17:05:22
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -16,7 +16,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const isEnvDevelopment = process.env.VUE_APP_MODE === 'development';
 // 测试环境
 // eslint-disable-next-line no-unused-vars
-const isEnvTest = process.env.VUE_APP_MODEW === 'test';
+const isEnvTest = process.env.VUE_APP_MODE === 'test';
 // 生产模式
 // eslint-disable-next-line no-unused-vars
 const isEnvProduction = process.env.VUE_APP_MODE === 'production';
