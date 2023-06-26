@@ -167,11 +167,11 @@ src
 ## 项目目录说明
 
 ```
-vue2-h5-tmp                             //
+vue2-h5-tmp
 ├─ .browserslistrc                      //
 ├─ .env.development                     // 开发环境配置文件
 ├─ .env.production                      // 生产环境配置文件
-├─ .env.test                            // 灰度 or 测试 or or uat环境配置文件
+├─ .env.test                            // 测试环境配置文件
 ├─ .eslintignore                        //
 ├─ .eslintrc.js                         //
 ├─ .npmrc                               //
@@ -184,30 +184,32 @@ vue2-h5-tmp                             //
 ├─ pnpm-lock.yaml                       //
 ├─ postcss.config.js                    //
 ├─ public                               //
-│  ├─ index.html                        // 入口文件
+│  ├─ index.html                        // template模板
 │  └─ static                            // 静态资源
 │     ├─ favicon.ico                    //
 │     └─ loading@2x.gif                 //
 ├─ README.md                            // 项目基本信息描述文件
-├─ run.bat                              // 批处理文件
-├─ src                                  // 业务代码
+├─ run.bat                              // 批处理文件脚本
+├─ src                                  // 业务代码块
 │  ├─ App.vue                           // 顶层router-view
 │  ├─ assets                            // 静态资源 hash处理
-│  │  ├─ css                            // 全局样式
+│  │  ├─ css                            //
 │  │  │  ├─ index.scss                  //
 │  │  │  └─ utils                       //
 │  │  │     └─ @util.scss               //
-│  │  ├─ img                            // 图片
-│  │  │  └─ base                        //
-│  │  │     ├─ empty.png                //
-│  │  │     └─ loading@2x.gif           //
-│  │  ├─ js                             // js
+│  │  ├─ img                            //
+│  │  │  ├─ base                        //
+│  │  │  │  ├─ empty.png                //
+│  │  │  │  └─ loading@2x.gif           //
+│  │  │  └─ images                      //
+│  │  ├─ js                             //
 │  │  └─ logo.png                       //
 │  ├─ config                            // 业务配置目录
 │  │  ├─ apis                           // 所有接口相关
 │  │  │  └─ dev.js                      //
 │  │  ├─ router                         // 所有路由相关
 │  │  │  ├─ dev.js                      //
+│  │  │  ├─ errpage.js                  //
 │  │  │  └─ index.js                    //
 │  │  └─ store                          // 状态商店（所有全局状态管理相关）
 │  │     └─ dev                         //
@@ -220,10 +222,10 @@ vue2-h5-tmp                             //
 │  │  └─ tabbar                         //
 │  │     └─ index.vue                   //
 │  ├─ main.js                           // 入口js文件
-│  ├─ packages                          // 第三方包
-│  │  ├─ console                        // vConsole配置
+│  ├─ packages                          // 第三方包配置
+│  │  ├─ console                        // vConsole
 │  │  │  └─ index.js                    //
-│  │  ├─ request                        // axios请求库封装
+│  │  ├─ request                        // axios
 │  │  │  ├─ cancel                      //
 │  │  │  │  ├─ index.js                 //
 │  │  │  │  └─ utils                    //
@@ -232,36 +234,60 @@ vue2-h5-tmp                             //
 │  │  │  │  └─ index.js                 //
 │  │  │  ├─ index.js                    //
 │  │  │  ├─ loading                     //
+│  │  │  │  ├─ components               //
+│  │  │  │  │  ├─ loading.js            //
+│  │  │  │  │  └─ loading.scss          //
 │  │  │  │  └─ index.js                 //
 │  │  │  ├─ README.md                   //
 │  │  │  └─ retry                       //
 │  │  │     └─ index.js                 //
-│  │  ├─ router                         // vue-router 核心封装(集中导出)
+│  │  ├─ router                         // vue-router
+│  │  │  ├─ guards                      //
+│  │  │  │  ├─ afterEach.js             //
+│  │  │  │  └─ beforeEach.js            //
 │  │  │  ├─ index.js                    //
 │  │  │  └─ routes.js                   //
-│  │  └─ store                          // vuex 核心封装(集中导出)
+│  │  └─ store                          //
 │  │     ├─ index.js                    //
 │  │     └─ modules.js                  //
 │  ├─ resources                         // 全局基础资源如基础组件、全局插件、全局指令等
-│  │  ├─ components                     // 基础组件
-│  │  │  └─ base-list                   //
+│  │  ├─ components                     //
+│  │  │  ├─ base-barcode                //
+│  │  │  │  ├─ index.vue                //
+│  │  │  │  └─ README.md                //
+│  │  │  ├─ base-list                   //
+│  │  │  │  ├─ index.vue                //
+│  │  │  │  └─ README.md                //
+│  │  │  └─ base-qrcode                 //
 │  │  │     ├─ index.vue                //
 │  │  │     └─ README.md                //
-│  │  └─ plugin                         // 全局插件
+│  │  ├─ directive                      //
+│  │  │  ├─ copy                        //
+│  │  │  │  ├─ index.js                 //
+│  │  │  │  └─ README.md                //
+│  │  │  └─ index.js                    //
+│  │  └─ plugin                         //
+│  │     ├─ index.js                    //
+│  │     ├─ vue-localstorage            //
+│  │     │  ├─ index.js                 //
+│  │     │  └─ README.md                //
+│  │     └─ vue-sessionstorage          //
+│  │        ├─ index.js                 //
+│  │        └─ README.md                //
 │  ├─ utils                             // 工具库
 │  │  ├─ helper                         // 帮助类如一些类型校验函数、判断浏览器 终端等
+│  │  │  ├─ sleep.js                    //
+│  │  │  ├─ validate.js                 //
 │  │  │  └─ env.js                      //
 │  │  └─ tools                          // 其他工具类
 │  │     ├─ eventBus                    //
 │  │     │  └─ index.js                 //
-│  │     ├─ get-realpx                  //
-│  │     │  └─ index.js                 //
-│  │     ├─ sleep.js                    //
-│  │     └─ validate.js                 //
-│  └─ views                             // 视图
-│     ├─ components                     // 业务组件（全局）
-│     ├─ dev                            // 开发者中心
-│     │  ├─ components                  // 模块内业务组件
+│  │     └─ get-realpx                  //
+│  │        └─ index.js                 //
+│  └─ views                             // 视图层
+│     ├─ components                     // 业务组件
+│     ├─ dev                            //
+│     │  ├─ components                  //
 │     │  │  ├─ eventBus                 //
 │     │  │  │  ├─ components            //
 │     │  │  │  │  ├─ children.vue       //
@@ -269,11 +295,13 @@ vue2-h5-tmp                             //
 │     │  │  │  └─ index.vue             //
 │     │  │  ├─ layOut                   //
 │     │  │  │  └─ index.vue             //
-│     │  │  ├─ list                     //
-│     │  │  │  └─ index.vue             //
-│     │  │  ├─ lodashjs                 //
-│     │  │  │  └─ index.vue             //
+│     │  │  ├─ plugin                   //
 │     │  │  ├─ tabbar                   //
+│     │  │  │  └─ index.vue             //
+│     │  │  ├─ tool                     //
+│     │  │  │  ├─ components            //
+│     │  │  │  │  ├─ copy.vue           //
+│     │  │  │  │  └─ lodashjs.vue       //
 │     │  │  │  └─ index.vue             //
 │     │  │  └─ vuex                     //
 │     │  │     └─ index.vue             //
