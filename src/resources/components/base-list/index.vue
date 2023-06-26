@@ -24,7 +24,7 @@
 
 <script>
 import { PullRefresh, List } from 'vant';
-import { sleep } from '@/utils/tools/sleep';
+import { sleep } from '@/utils/helper/sleep';
 export default {
     props: {
         /**
