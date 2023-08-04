@@ -1,10 +1,10 @@
 /*
- * @Descripttion:
+ * @Descripttion:webpack配置文件
  * @version:
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-11 17:05:22
+ * @LastEditTime: 2023-08-02 20:36:13
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -22,9 +22,6 @@ const isEnvTest = process.env.VUE_APP_MODE === 'test';
 const isEnvProduction = process.env.VUE_APP_MODE === 'production';
 //是否需要进行捆绑包分析
 const BUNDLE_ANALYZE = process.env.VUE_APP_BUNDLE_ANALYZE === 'true';
-function resolve(dir) {
-    return path.resolve(__dirname, dir);
-}
 
 module.exports = defineConfig({
     runtimeCompiler: true,
@@ -55,8 +52,8 @@ module.exports = defineConfig({
         config.plugins.delete('preload');
         // 移除 prefetch 插件
         config.plugins.delete('prefetch');
-        // 添加别名
-        config.resolve.alias.set('@', resolve('src'));
+        //设置路径别名 @表示src 使用方法：import { } from '@/components'
+        config.resolve.alias.set('@', path.resolve(__dirname, 'src'));
     },
     configureWebpack: (config) => {
         // production模式下构建时补充HtmlWebpackPlugin插件配置
@@ -97,7 +94,7 @@ module.exports = defineConfig({
                 }
             })
         );
-
+        // 开发环境下下，开启捆绑包分析
         if (isEnvDevelopment && BUNDLE_ANALYZE) {
             config.plugins.push(
                 new BundleAnalyzerPlugin({
@@ -107,9 +104,6 @@ module.exports = defineConfig({
             );
         }
 
-        /**
-         * test环境进行依赖分析
-         */
         return {
             optimization: {
                 // 此设置保证有新增的入口文件时,原有缓存的chunk文件仍然可用
