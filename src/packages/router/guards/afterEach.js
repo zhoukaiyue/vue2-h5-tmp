@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2023-06-11 16:34:49
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-11 16:53:15
+ * @LastEditTime: 2023-08-25 11:27:05
  */
 import Vue from 'vue';
 import store from '@/packages/store';
@@ -21,6 +21,8 @@ export default function (to) {
     // 滚动行为
     Vue.nextTick(() => {
         const $content = document.querySelector('.frame-view-content');
-        $content.scrollTop = store.state.scrollPositions[to.path] || 0;
+        if ($content) {
+            $content.scrollTop = store.state.scrollPositions[to.path] || 0;
+        }
     });
 }
