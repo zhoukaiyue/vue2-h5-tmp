@@ -186,8 +186,12 @@ vue2-h5-tmp
 ├─ public                               //
 │  ├─ index.html                        // template模板
 │  └─ static                            // 静态资源
-│     ├─ favicon.ico                    //
-│     └─ loading@2x.gif                 //
+│     ├─ css                            //
+│     │  └─ index.css                   //
+│     ├─ img                            //
+│     │  ├─ favicon.ico                 //
+│     │  └─ loading@2x.gif              //
+│     └─ js                             //
 ├─ README.md                            // 项目基本信息描述文件
 ├─ run.bat                              // 批处理文件脚本
 ├─ src                                  // 业务代码块

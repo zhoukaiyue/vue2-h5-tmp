@@ -1,0 +1,38 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+html {
+    font-size: 10vw;
+}
+
+body {
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC',
+        'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+    text-size-adjust: 100% !important;
+}
+.toggle-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.toggle-loading .cont {
+    width: 2.66667rem;
+    height: 2.66667rem;
+    position: relative;
+}
+
+.toggle-loading .cont img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
