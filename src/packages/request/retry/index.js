@@ -1,6 +1,6 @@
 /*
  * @Descripttion: 实现请求错误时重新发送接口
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-11-21 10:54:10
  * @LastEditors: zhoukai

@@ -1,6 +1,6 @@
 <!--
  * @Descripttion: 请求库使用说明
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-11-22 16:58:59
  * @LastEditors: zhoukai

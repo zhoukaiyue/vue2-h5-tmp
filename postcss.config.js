@@ -1,6 +1,6 @@
 /*
  * @Descripttion: postcss 配置文件
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-08-08 15:08:18
  * @LastEditors: zhoukai

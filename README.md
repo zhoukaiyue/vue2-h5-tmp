@@ -206,8 +206,7 @@ vue2-h5-tmp
 │  │  │  │  ├─ empty.png                //
 │  │  │  │  └─ loading@2x.gif           //
 │  │  │  └─ images                      //
-│  │  ├─ js                             //
-│  │  └─ logo.png                       //
+│  │  └─ js                             //
 │  ├─ config                            // 业务配置目录
 │  │  ├─ apis                           // 所有接口相关
 │  │  │  └─ dev.js                      //

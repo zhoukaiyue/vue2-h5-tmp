@@ -1,6 +1,6 @@
 {
     "name": "vue2-h5-tmp",
-    "version": "v1.3.0",
+    "version": "v1.3.1",
     "private": true,
     "scripts": {
         "start": "vue-cli-service serve --mode development",

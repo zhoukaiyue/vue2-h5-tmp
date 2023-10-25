@@ -1,6 +1,6 @@
 /*
  * @Descripttion: 常用验证器
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-11-21 17:24:55
  * @LastEditors: zhoukai

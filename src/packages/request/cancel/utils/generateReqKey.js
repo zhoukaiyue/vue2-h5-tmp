@@ -1,6 +1,6 @@
 /*
  * @Descripttion:用于根据当前请求的信息，生成请求 Key；
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-11-21 14:21:38
  * @LastEditors: zhoukai

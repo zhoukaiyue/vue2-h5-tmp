@@ -1,6 +1,6 @@
 /*
  * @Descripttion: eventBus 事件总线
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2023-08-04 13:48:21
  * @LastEditors: zhoukai

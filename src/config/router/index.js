@@ -1,6 +1,6 @@
 /*
  * @Descripttion:index router配置文件
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai

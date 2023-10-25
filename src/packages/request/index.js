@@ -1,6 +1,6 @@
 /*
  * @Descripttion: axios终极封装，包含取消重复请求、请求错误重试、loading基本功能与交互
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai

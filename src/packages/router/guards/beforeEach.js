@@ -1,6 +1,6 @@
 /*
  * @Descripttion: 用于处理beforeEach守卫逻辑。
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2023-06-11 16:34:49
  * @LastEditors: zhoukai

@@ -1,6 +1,6 @@
 /*
  * @Descripttion:一个操作 localStorage 的 Vue 插件
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2023-02-07 11:12:18
  * @LastEditors: zhoukai

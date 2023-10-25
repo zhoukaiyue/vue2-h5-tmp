@@ -1,6 +1,6 @@
 /*
  * @Descripttion:批量注册全局自定义插件
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2023-05-22 09:31:52
  * @LastEditors: zhoukai

@@ -1,6 +1,6 @@
 /*
  * @Descripttion:获取真实大小
- * @version:
+ * @version: 1.3.1
  * @Author: zhoukai
  * @Date: 2022-08-02 15:51:15
  * @LastEditors: zhoukai
