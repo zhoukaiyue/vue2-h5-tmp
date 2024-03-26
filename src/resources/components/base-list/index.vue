@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-10 16:43:24
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 23:31:10
+ * @LastEditTime: 2024-03-26 11:35:25
 -->
 <template>
     <van-pull-refresh
@@ -24,7 +24,7 @@
 
 <script>
 import { PullRefresh, List } from 'vant';
-import { sleep } from '@/utils/helper/sleep';
+import { sleep } from '@/utils/helper';
 export default {
     props: {
         /**

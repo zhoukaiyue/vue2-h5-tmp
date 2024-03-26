@@ -1,10 +1,18 @@
 <!--
  * @Descripttion: 
+ * @version: 
+ * @Author: zhoukai
+ * @Date: 2024-01-19 16:16:55
+ * @LastEditors: zhoukai
+ * @LastEditTime: 2024-03-26 11:30:21
+-->
+<!--
+ * @Descripttion: 
  * @version: 1.3.1 
  * @Author: zhoukai
  * @Date: 2022-08-10 16:26:19
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 16:37:49
+ * @LastEditTime: 2024-03-26 11:28:23
 -->
 <template>
     <frame-view class="dev-eventbus">
@@ -15,8 +23,9 @@
 </template>
 
 <script>
-import eventBus from '@/utils/tools/eventBus';
+import { eventBus } from '@/utils/tools';
 import children from './components/children.vue';
+
 export default {
     props: {},
     data() {

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import eventBus from '@/utils/tools/eventBus';
+import { eventBus } from '@/utils/tools';
 export default {
     props: {},
     data() {

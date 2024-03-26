@@ -2,7 +2,7 @@
 
 ```javascript
 //myComponent.vue 【触发】
-import eventBus from '@/utils/tools/eventBus';
+import { eventBus } from '@/utils/tools';
 export default {
     methods: {
         clickEvt() {
@@ -15,7 +15,7 @@ export default {
 
 ```javascript
 //myComponent.vue 【监听】
-import eventBus from '@/utils/tools/eventBus';
+import { eventBus } from '@/utils/tools';
 export default {
     created() {
         //移除事件
