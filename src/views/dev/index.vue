@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-09 09:53:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-11 16:58:42
+ * @LastEditTime: 2024-04-03 16:43:36
 -->
 <template>
     <frame-view class="dev">
@@ -49,6 +49,10 @@ export default {
                 {
                     path: '/dev/tool',
                     label: '脚手架已经集成的工具库'
+                },
+                {
+                    path: '/dev/basic-components',
+                    label: '内置组件的使用'
                 }
             ]
         };

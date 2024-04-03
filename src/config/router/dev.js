@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-07-29 11:03:13
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-11 16:49:08
+ * @LastEditTime: 2024-04-03 16:49:06
  */
 
 const routes = [
@@ -65,6 +65,21 @@ const routes = [
             title: 'JavaScript | lodashjs库的使用'
         },
         component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/tool/components/lodashjs.vue')
+    },
+    {
+        path: '/dev/basic-components',
+        meta: {
+            title: '内置组件的使用'
+        },
+        component: () => import(/* webpackChunkName: "dev" */ '@/views/dev/components/basic-components/index.vue')
+    },
+    {
+        path: '/dev/basic-components/ellipsis',
+        meta: {
+            title: '组件 | Ellipsis文本省略组件'
+        },
+        component: () =>
+            import(/* webpackChunkName: "dev" */ '@/views/dev/components/basic-components/components/ellipsis')
     }
 ];
 export default routes;
