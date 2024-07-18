@@ -4,24 +4,15 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-08-02 20:36:13
+ * @LastEditTime: 2024-07-18 17:50:43
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 // 使用 analyzer 分析项目编译后的文件组成，以便进行加载速度优化。
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// 开发模式
-// eslint-disable-next-line no-unused-vars
-const isEnvDevelopment = process.env.VUE_APP_MODE === 'development';
-// 测试环境
-// eslint-disable-next-line no-unused-vars
-const isEnvTest = process.env.VUE_APP_MODE === 'test';
-// 生产模式
-// eslint-disable-next-line no-unused-vars
-const isEnvProduction = process.env.VUE_APP_MODE === 'production';
-//是否需要进行捆绑包分析
-const BUNDLE_ANALYZE = process.env.VUE_APP_BUNDLE_ANALYZE === 'true';
+// git 提交哈希
+const { gitHash, isEnvDevelopment, isEnvTest, isEnvProduction, BUNDLE_ANALYZE } = require('./util');
 
 module.exports = defineConfig({
     runtimeCompiler: true,
@@ -159,10 +150,13 @@ module.exports = defineConfig({
             cache: {
                 // 将缓存类型设置为文件系统,默认是memory
                 type: 'filesystem',
+                // 缓存目录
+                cacheDirectory: path.resolve(__dirname, 'node_modules/.cache/webpack', process.env.VUE_APP_MODE),
                 buildDependencies: {
                     // 更改配置文件时，重新缓存
                     config: [__filename]
-                }
+                },
+                version: gitHash // 使用 git 哈希作为缓存版本
             },
             performance: {
                 maxAssetSize: 500000,
