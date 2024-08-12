@@ -1,5 +1,12 @@
 // 获取git提交的hash值（短）
-const gitHash = require('git-rev-sync').short();
+let gitHash;
+try {
+    gitHash = require('git-rev-sync').short();
+} catch (error) {
+    // 当没有.git文件时，生成一个长度为7的随机字符串作为默认hash值
+    gitHash = Math.random().toString(36).substring(2, 9);
+}
+
 // 开发环境
 const isEnvDevelopment = process.env.VUE_APP_MODE === 'development';
 // 测试环境
