@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-04 22:23:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2024-07-18 17:50:43
+ * @LastEditTime: 2024-08-12 14:53:25
  */
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
@@ -13,6 +13,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // git 提交哈希
 const { gitHash, isEnvDevelopment, isEnvTest, isEnvProduction, BUNDLE_ANALYZE } = require('./util');
+const cleanCache = require('./cleanCache');
 
 module.exports = defineConfig({
     runtimeCompiler: true,
@@ -39,6 +40,8 @@ module.exports = defineConfig({
     // 调整内部的 webpack 配置。
     // 查阅 https://cli.vuejs.org/zh/guide/webpack.html
     chainWebpack: (config) => {
+        // 在每次构建之前清理缓存
+        cleanCache();
         // 移除 preload 插件
         config.plugins.delete('preload');
         // 移除 prefetch 插件
