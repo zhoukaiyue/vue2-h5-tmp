@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-09 15:29:02
+ * @LastEditTime: 2024-09-14 11:23:58
  */
 import axios from 'axios';
 import QS from 'qs';
@@ -16,6 +16,7 @@ import { againRequest } from './retry';
 import { addPendingMap, removePendingRequest } from './cancel';
 // http错误状态码处理
 import { httpErrorStatusHandle } from './httpErrorStatusHandle';
+import { addRequest, removeRequest } from './requestAbortManager'
 
 //  将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
 axios.defaults.baseURL = process.env.VUE_APP_AXIOS_BASEURL;
@@ -83,7 +84,7 @@ axios.interceptors.request.use(
             // 将当前请求加入pendingMap队列
             addPendingMap(config);
         }
-
+        addRequest(config);
         // 在发送请求之前做些什么
         return config;
     },
@@ -104,7 +105,7 @@ axios.interceptors.response.use(
 
         // 响应正常时候就从pending队列清除该请求
         enableCancelModel && removePendingRequest(response.config);
-
+        removeRequest(response.config);
         // 对响应数据做点什么
         return response;
     },
@@ -114,7 +115,7 @@ axios.interceptors.response.use(
 
         // 响应失败也要从pending队列清除该请求
         enableCancelModel && error.config && removePendingRequest(error.config);
-
+        error.config && removeRequest(error.config);
         // 需要特殊处理请求被取消的情况
         // 如果不是取消请求导致的, 就进行重新发送
         if (!axios.isCancel(error) && enableRetryModel) {
