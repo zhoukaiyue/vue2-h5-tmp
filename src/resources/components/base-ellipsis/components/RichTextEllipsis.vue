@@ -46,11 +46,11 @@ export default {
         symbol: {
             type: String,
             default: '...'
-        },
-        lineHeight: {
-            type: [Number, String],
-            default: '20'
         }
+        // lineHeight: {
+        //     type: [Number, String],
+        //     default: '20'
+        // }
     },
 
     data() {
@@ -59,11 +59,13 @@ export default {
             maxHeight: 0,
             ellipsis: null,
             exceeded: false,
-            expanded: false
+            expanded: false,
+            lineHeight: null
         };
     },
 
     mounted() {
+        this.calculateLineHeight();
         this.createContainer();
     },
 
@@ -95,9 +97,7 @@ export default {
             this.container.style.whiteSpace = 'normal';
             this.container.style.webkitLineClamp = 'unset';
             this.container.style.display = 'block';
-            const lineHeight = this.pxToNumber(
-                originStyle.lineHeight === 'normal' ? this.lineHeight : originStyle.lineHeight
-            );
+            const lineHeight = this.lineHeight;
             this.maxHeight = Math.floor(
                 lineHeight * (Number(this.rows) + 0.5) +
                     this.pxToNumber(originStyle.paddingTop) +
@@ -204,6 +204,14 @@ export default {
 
         handleClick() {
             this.$emit('click');
+        },
+
+        calculateLineHeight() {
+            if (this.$refs.RichTextEllipsis) {
+                const computedStyle = window.getComputedStyle(this.$refs.RichTextEllipsis);
+                this.lineHeight = this.pxToNumber(computedStyle.fontSize);
+                console.log(computedStyle);
+            }
         }
     }
 };

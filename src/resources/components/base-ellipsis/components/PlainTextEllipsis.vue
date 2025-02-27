@@ -44,10 +44,6 @@ export default {
         symbol: {
             type: String,
             default: '...'
-        },
-        lineHeight: {
-            type: [Number, String],
-            default: '20'
         }
     },
 
@@ -57,11 +53,13 @@ export default {
             maxHeight: 0,
             ellipsis: null,
             exceeded: false,
-            expanded: false
+            expanded: false,
+            lineHeight: '20'
         };
     },
 
     mounted() {
+        this.calculateLineHeight();
         this.createContainer();
     },
 
@@ -93,9 +91,7 @@ export default {
             this.container.style.whiteSpace = 'normal';
             this.container.style.webkitLineClamp = 'unset';
             this.container.style.display = 'block';
-            const lineHeight = this.pxToNumber(
-                originStyle.lineHeight === 'normal' ? this.lineHeight : originStyle.lineHeight
-            );
+            const lineHeight = this.lineHeight;
             this.maxHeight = Math.floor(
                 lineHeight * (Number(this.rows) + 0.5) +
                     this.pxToNumber(originStyle.paddingTop) +
@@ -202,6 +198,13 @@ export default {
 
         handleClick() {
             this.$emit('click');
+        },
+
+        calculateLineHeight() {
+            if (this.$refs.PlainTextEllipsis) {
+                const computedStyle = window.getComputedStyle(this.$refs.PlainTextEllipsis);
+                this.lineHeight = this.pxToNumber(computedStyle.fontSize);
+            }
         }
     }
 };
